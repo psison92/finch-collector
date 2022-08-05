@@ -23,9 +23,13 @@
     {% if finch.age > 0 %}
       <h2>A {{ finch.age }} year old {{ finch.breed }} finch</h2>
     {% else %}
-      <h2>A {{ finch.breed }} kitten.</h2>
+      <h2>A {{ finch.breed }} fledgling.</h2>
     {% endif %}
     <p>{{ finch.description }}</p>
+    <div class="finch-actions">
+      <a href="{% url 'finches_update' finch.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'finches_delete' finch.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 
