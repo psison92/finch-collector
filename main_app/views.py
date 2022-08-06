@@ -1,4 +1,3 @@
-from msilib.schema import ListView
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -54,3 +53,11 @@ class ToyList(ListView):
 
 class ToyDetail(DetailView):
   model = Toy
+
+class ToyUpdate(UpdateView):
+  model = Toy
+  fields = ['name', 'color']
+
+class ToyDelete(DeleteView):
+  model = Toy
+  success_url = '/toys/'
