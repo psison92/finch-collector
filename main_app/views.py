@@ -1,8 +1,10 @@
+from msilib.schema import ListView
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 
 from main_app.forms import FeedingForm
-from .models import Finch
+from .models import Finch, Toy
 
 # Create your views here.
 def home(request):
@@ -42,3 +44,13 @@ class FinchUpdate(UpdateView):
 class FinchDelete(DeleteView):
   model = Finch
   success_url = '/finches/'
+
+class ToyCreate(CreateView):
+  model = Toy
+  fields = '__all__'
+
+class ToyList(ListView):
+  model = Toy
+
+class ToyDetail(DetailView):
+  model = Toy
